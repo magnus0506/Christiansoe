@@ -1,0 +1,32 @@
+﻿@model Christiansoe.Models.Animal
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <img src="~/lib/frog.jpg" />
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            Navn:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Race:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species)
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Rediger</a> |
+    <a class="btn btn-primary" asp-action="Index">Tilbage</a>
+</div>

@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+         /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+         #map {
+             height: 40%;
+         }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h4>Tid det tager at gå til færgen fra seværdigheder</h4>
+        <p>Christiansø kirke - 5 minutter</p>
+        <p>Hestehuset - 12 minutter</p>
+        <p>Christiansø Lejrplads - 28 minutter</p>
+        <p>Loppehytten - 39 minutter</p>
+    </div>
+    <ul>
+        @if (Context.User.Identity.IsAuthenticated)
+            {
+                <li>
+                    <a>Hello @User.Identity.Name</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="Logout">Logout</a>
+                </li>
+            }
+    </ul>
+
+
+    <div id="map" style="width: 400px; height: 500px;"></div>
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 55.320665, lng: 15.188427 },
+                zoom: 15
+            });
+    
+            console.log(map)
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT3CdU38CmIMKAlP9-04DFqWQ_573xrjQ&callback=initMap"
+            async defer></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+﻿@model Christiansoe.Models.History
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h4> @Html.DisplayFor(model => model.Title)</h4>
+    <dl class="row">
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Rediger</a> |
+    <a class="btn btn-primary" asp-action="Index">Tilbage</a>
+</div>
